@@ -1,0 +1,16 @@
+.start-btn-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 24px;
+
+    button {
+        cursor: pointer;
+        height: 42px;
+        font-size: 1em;
+        font-weight: 500;
+        border: 1px solid transparent;
+        color: darkgray;
+        background-color: lightyellow;
+    }
+}
