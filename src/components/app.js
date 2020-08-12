@@ -1,6 +1,6 @@
 import React, { Component  } from 'react';
 
-import StartBtn from "./timer-start-btn";
+import Btns from "./btns";
 import Timer from "./timer";
 import TimerInput from "./timer-input";
 
@@ -15,12 +15,15 @@ export default class App extends Component {
 
     this.secondsRemaining;
     this.intervalHandle;
+
     this.handleChange = this.handleChange.bind(this);
     this.startCountdown = this.startCountdown.bind(this);
+    // this.resetCountdown = this.resetCountdown.bind(this);
     this.counter = this.counter.bind(this);
   }
 
   handleChange(event) {
+    event.preventDefault();
     this.setState({
       minutes: event.target.value
     })
@@ -60,15 +63,22 @@ export default class App extends Component {
     let time = this.state.minutes;
 
     this.secondsRemaining = time * 60;
-}
+  }
+
+  // resetCountdown() {
+  //   this.setState({
+  //     minutes: "00",
+  //     seconds: "00"
+  //   })
+  // }
 
   render() {
     return (
       <div className='app-wrapper'>
         <Timer minutes={this.state.minutes} seconds={this.state.seconds} />
         <TimerInput minutes={this.state.minutes} handleChange={this.handleChange} />
-        <StartBtn startCountdown={this.startCountdown} minutes={this.state.minutes} />
+        <Btns startCountdown={this.startCountdown} resetCountdown={this.resetCountdown} />
       </div>
-      )
-    }
+    )
   }
+}

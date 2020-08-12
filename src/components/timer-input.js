@@ -13,6 +13,7 @@ export default class TimerInput extends Component {
             <div className="timer-input-wrapper">
                 <h3>Set your time:</h3>
                 <input 
+                    id="timerInput"
                     type="number" 
                     minutes={this.props.minutes}
                     onChange={this.props.handleChange}
